@@ -1,7 +1,1 @@
-if [[ $(find . -name 'a*') ]]; then
-find . -name 'a*'
-elif [[ $(find . -type f -name '*z') ]]; then
-find . -type f -name '*z'
-else
-find . -type f -name 'z*a\!'
-fi
+find . -name 'a*' -o -type f -name '*z' -o -type f -name 'z*a!'
