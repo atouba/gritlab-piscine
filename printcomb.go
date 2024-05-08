@@ -4,7 +4,7 @@ import "github.com/01-edu/z01"
 
 func PrintComb() {
 	var a, b, c rune
-	var e, f rune
+	var e, f, g rune
 
 	a = '0'
 	b = '1'
@@ -12,6 +12,7 @@ func PrintComb() {
 
 	e = ','
 	f = ' '
+    g = '\n'
 
 	for ; a <= '7'; a++ {
 		for b = a + 1; b <= '8'; b++ {
@@ -23,7 +24,9 @@ func PrintComb() {
 				if a != '7' {
 					z01.PrintRune(e)
 					z01.PrintRune(f)
-				}
+				} else {
+                    z01.PrintRune(g)
+                }
 			}
 		}
 	}
