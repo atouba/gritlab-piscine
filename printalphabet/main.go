@@ -4,6 +4,10 @@ import (
 	"github.com/01-edu/z01"
 )
 
+//func ret() (int) {
+//  return 0
+//}
+
 func main() {
 	var c rune = 'a'
 	var n rune = '\n'
