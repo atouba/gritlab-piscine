@@ -2,9 +2,6 @@ package piscine
 
 import "github.com/01-edu/z01"
 
-//import "fmt"
-
-// minimum
 func minimum(n int) int {
 	var res int = 0
 
@@ -15,7 +12,6 @@ func minimum(n int) int {
 	return res
 }
 
-// 789
 func maximum(n int) int {
 	var ten int = 1
 	var maxi int = 0
@@ -29,15 +25,6 @@ func maximum(n int) int {
 	return maxi
 }
 
-//  print number
-/*
-func printstr(s string) {
-	for i := 0; i < len(s); i++ {
-		z01.PrintRune(rune(s[i]))
-	}
-}
-*/
-// print number correctly
 func printNbr(nbr int) {
 	if nbr >= 10 {
 		PrintNbr(nbr / 10)
@@ -69,10 +56,8 @@ func printnum(nbr int, n int) {
 		z01.PrintRune('0')
 	}
 	printNbr(nbr)
-	// fmt.Println(maximum(n))
 }
 
-// 289 => 100
 func tens(t int) int {
 	var teny int = 1
 
@@ -82,7 +67,6 @@ func tens(t int) int {
 	return teny / 10
 }
 
-// check if number is a correct comb
 func checkComb(n int) bool {
 	var x int = 0
 
