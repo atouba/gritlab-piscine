@@ -16,6 +16,13 @@ func printspace() {
 	z01.PrintRune(space)
 }
 
+func printnline() {
+	var nline rune
+
+	nline = '\n'
+	z01.PrintRune(nline)
+}
+
 func printn(n int) {
 	var x, y rune
 
@@ -37,6 +44,8 @@ func PrintComb2() {
 			if x != 98 {
 				printcomma()
 				printspace()
+			} else {
+				printnline()
 			}
 		}
 	}
