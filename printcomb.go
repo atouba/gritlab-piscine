@@ -12,7 +12,7 @@ func PrintComb() {
 
 	e = ','
 	f = ' '
-    g = '\n'
+	g = '\n'
 
 	for ; a <= '7'; a++ {
 		for b = a + 1; b <= '8'; b++ {
@@ -25,8 +25,8 @@ func PrintComb() {
 					z01.PrintRune(e)
 					z01.PrintRune(f)
 				} else {
-                    z01.PrintRune(g)
-                }
+					z01.PrintRune(g)
+				}
 			}
 		}
 	}
