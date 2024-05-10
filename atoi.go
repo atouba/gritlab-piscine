@@ -45,9 +45,9 @@ func count_sign(s string) bool {
 	if count > 1 {
 		return false
 	}
-	for i := index_atoi(s); i < strlen_atoi(s); i++ {
+	for i := 0; i < strlen_atoi(s); i++ {
 		if rune(s[i]) == '+' || rune(s[i]) == '-' {
-			if i < strlen_atoi(s)-1 && (rune(s[i+1]) > '9' || rune(s[i+1]) < '0') {
+			if i != 0 {
 				return false
 			}
 		}
