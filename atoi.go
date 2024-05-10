@@ -25,12 +25,12 @@ func count_n(s string) bool {
 
 	for i := 0; i < strlen_atoi(s); i++ {
 		if rune(s[i]) >= '0' && rune(s[i]) <= '9' {
-      count++
-    }
+			count++
+		}
 	}
-  if count > 0 {
-    return true
-  }
+	if count > 0 {
+		return true
+	}
 	return false
 }
 
