@@ -2,7 +2,7 @@ package piscine
 
 func StrRev(s string) string {
 	var revstr string
-	var str_len = StrLen(s)
+	str_len := StrLen(s)
 
 	var revs []rune = make([]rune, str_len)
 	var j int = 0
