@@ -20,40 +20,15 @@ func strlen_atoi(s string) int {
 	return l
 }
 
-func count_n(s string) bool {
-	var count int = 0
-
-	for i := 0; i < strlen_atoi(s); i++ {
-		if rune(s[i]) >= '0' && rune(s[i]) <= '9' {
-			count++
-		}
-	}
-	if count > 0 {
-		return true
-	}
-	return false
-}
-
 func count_sign(s string) bool {
-	var count int = 0
-
-	for i := range s {
-		if s[i] == '+' || s[i] == '-' {
-			count++
-		}
-	}
-	if count > 1 {
-		return false
-	}
 	for i := 0; i < strlen_atoi(s); i++ {
 		if rune(s[i]) == '+' || rune(s[i]) == '-' {
 			if i != 0 {
 				return false
 			}
+		} else if rune(s[i]) < '0' || rune(s[i]) > '9' {
+			return false
 		}
-    if rune(s[i]) < 0 || rune(s[i]) > 9 {
-      return false
-    }
 	}
 	return true
 }
@@ -62,7 +37,7 @@ func Atoi(s string) int {
 	var res int = 0
 	var sign int = 1
 
-	if !count_n(s) || !count_sign(s) {
+	if !count_sign(s) {
 		return 0
 	}
 	for i := index_atoi(s); i < strlen_atoi(s); i++ {
