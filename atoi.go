@@ -51,6 +51,9 @@ func count_sign(s string) bool {
 				return false
 			}
 		}
+    if rune(s[i]) < 0 || rune(s[i]) > 9 {
+      return false
+    }
 	}
 	return true
 }
