@@ -11,12 +11,12 @@ func index(s string) int {
 }
 
 func BasicAtoi(s string) int {
-	var res int = 0
+	var res int64 = 0
 
 	for i := index(s); i < StrLen(s); i++ {
-		res += int(rune(s[i]) - '0')
+		res += int64(rune(s[i]) - '0')
 		res *= 10
 	}
 
-	return res / 10
+	return int(res / 10)
 }
