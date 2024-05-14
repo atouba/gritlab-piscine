@@ -42,13 +42,15 @@ func isNum(c rune) bool {
 func TrimAtoi(s string) int {
 	var res int = 0
 	var sign int = 1
+	start := 0
 
 	for i := 0; i < strlen_atoi(s); i++ {
-		if rune(s[i]) == '-' {
+		if start == 0 && rune(s[i]) == '-' {
 			sign = -1
 			continue
 		}
 		if isNum(rune(s[i])) {
+			start = 1
 			res *= 10
 			res += int(rune(s[i]) - '0')
 		}
