@@ -60,9 +60,12 @@ func letter(n int, isupp bool) rune {
 func main() {
 	var n int
 	isupp := false
-
 	i := 1
 	var v string
+
+	if len(os.Args) == 1 {
+		return
+	}
 	if os.Args[1] == "--upper" {
 		isupp = true
 		i = 2
