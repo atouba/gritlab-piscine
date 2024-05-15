@@ -14,11 +14,9 @@ func PrintStr(s string) {
 
 func main() {
 	for i, v := range os.Args {
-		if i == 0 {
-			PrintStr(string([]rune(v)[2:]))
-		} else {
+		if i > 0 {
 			PrintStr(v)
+			z01.PrintRune('\n')
 		}
-		z01.PrintRune('\n')
 	}
 }
