@@ -14,4 +14,5 @@ func PrintStr(s string) {
 
 func main() {
 	PrintStr(string([]rune(os.Args[0])[2:]))
+	z01.PrintRune('\n')
 }
