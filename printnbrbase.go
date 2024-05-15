@@ -21,6 +21,10 @@ func isBaseValid(base string) bool {
 func PrintNbrBase(nbr int, base string) {
 	base_length := StrLen(base)
 
+	if nbr == -9223372036854775808 {
+		printstr("-9223372036854775808")
+		return
+	}
 	if !isBaseValid(base) {
 		PrintStr("NV")
 		return
