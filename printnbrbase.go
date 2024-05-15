@@ -12,7 +12,7 @@ func isUnique(base string) bool {
 }
 
 func isBaseValid(base string) bool {
-	if StrLen(base) < 2 || !isUnique(base) {
+	if StrLen(base) < 2 || !isUnique(base) || Index(base, "+") != -1 || Index(base, "-") != -1 {
 		return false
 	}
 	return true
