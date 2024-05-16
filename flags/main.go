@@ -149,6 +149,7 @@ func main() {
 	}
 	if isOrder {
 		printSortedString([]rune(bigStr))
+		fmt.Println()
 	} else {
 		fmt.Println(bigStr)
 	}
