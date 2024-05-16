@@ -40,19 +40,19 @@ func Atoi(s string) int {
 	if !count_sign(s) {
 		return 0
 	}
-  for i, v := range s {
+	for i, v := range s {
 		if v == '-' {
 			sign = -1
 			continue
 		}
 		if index(base, string(v)) != -1 {
-      res *= 10
+			res *= 10
 			res += i
 			if i < strlen_atoi(s)-1 {
 			}
 		} else {
-      return 0
-    }
+			return 0
+		}
 	}
 
 	return res * sign
