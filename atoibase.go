@@ -1,5 +1,20 @@
 package piscine
 
+func iterativePower(nb int, power int) int {
+	if power < 0 {
+		return 0
+	}
+	if power == 0 {
+		return 1
+	}
+	res := 1
+	for power > 0 {
+		res *= nb
+		power--
+	}
+	return res
+}
+
 func strLen(s string) int {
 	var l int = 0
 
@@ -69,7 +84,7 @@ func AtoiBase(s string, base string) int {
 		return 0
 	}
 	for i := strLen(s) - 1; i >= 0; i-- {
-		res += index_b(base, string(s[i])) * IterativePower(strLen(base), j)
+		res += index_b(base, string(s[i])) * iterativePower(strLen(base), j)
 		j++
 	}
 	return res * sign
