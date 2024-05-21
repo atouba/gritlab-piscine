@@ -61,6 +61,13 @@ func Atoi(s string) int {
 	return res * sign
 }
 
+func ma(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
 func main() {
 	var ret_value int
 
@@ -74,7 +81,8 @@ func main() {
 					fmt.Printf("\n")
 				}
 				fmt.Printf("==> %s <==\n", os.Args[i])
-				fmt.Printf(string(data[len([]byte(data))-c:]))
+				start := ma(0, len([]byte(data))-c)
+				fmt.Printf(string(data[start:]))
 			} else {
 				fmt.Printf(err.Error())
 				fmt.Printf("\n")
