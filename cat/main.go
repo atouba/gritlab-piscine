@@ -1,9 +1,9 @@
 package main
 
 import (
-	"fmt"
-  "github.com/01-edu/z01"
 	"os"
+
+	"github.com/01-edu/z01"
 )
 
 func printStr(s string) {
@@ -13,25 +13,40 @@ func printStr(s string) {
 }
 
 func printt(strs ...string) {
-  for _, v := range strs {
-    printStr(v)
-  }
+	for _, v := range strs {
+		printStr(v)
+	}
+}
+
+func clearB(b *[1024]byte, n int) {
+	for i := range n {
+		b[i] = 0
+	}
 }
 
 func main() {
-  l := len(os.Args)
-  if l == 1 {
-  } else {
-    for i := 1; i < l; i++ {
-      file, err := os.Open(os.Args[i])
-      if err != nil {
-        printt("ERROR: ", err.Error(), "\n")
-        os.Exit(1)
-      } else {
-        fmt.Printf("Type: %T\n", file)
-        fmt.Println(file)
-      }
-    }
-  }
-}
+	l := len(os.Args)
+	var maxi int = 0
 
+	if l == 1 {
+		var buffer [1024]byte
+		for {
+			n, _ := os.Stdin.Read(buffer[:])
+			if maxi < n {
+				maxi = n
+			}
+			printt(string(buffer[:]))
+			clearB(&buffer, maxi)
+		}
+	} else {
+		for i := 1; i < l; i++ {
+			data, err := os.ReadFile(os.Args[i])
+			if err == nil {
+				printt(string(data))
+			} else {
+				printt("ERROR: ", err.Error(), "\n")
+				os.Exit(1)
+			}
+		}
+	}
+}
