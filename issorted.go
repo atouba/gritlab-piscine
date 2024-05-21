@@ -1,6 +1,6 @@
 package piscine
 
-func compare(x, y int) int {
+func compareXY(x, y int) int {
 	if x > y {
 		return 1
 	} else if x < y {
