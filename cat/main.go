@@ -19,7 +19,7 @@ func printt(strs ...string) {
 }
 
 func clearB(b *[1024]byte, n int) {
-	for i := range n {
+	for i := 0; i < n; i++ {
 		b[i] = 0
 	}
 }
