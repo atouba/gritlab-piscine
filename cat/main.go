@@ -31,7 +31,7 @@ func main() {
 	if l == 1 {
 		var buffer [1024]byte
 		n, _ := os.Stdin.Read(buffer[:])
-		printt(string(buffer[:]))
+		printt(string(buffer[0:n]))
 		clearB(&buffer, n)
 		maxi = n
 		for n > 0 {
@@ -39,7 +39,7 @@ func main() {
 			if maxi < n {
 				maxi = n
 			}
-			printt(string(buffer[:]))
+			printt(string(buffer[0:n]))
 			clearB(&buffer, maxi)
 		}
 	} else {
