@@ -30,8 +30,12 @@ func main() {
 
 	if l == 1 {
 		var buffer [1024]byte
-		for {
-			n, _ := os.Stdin.Read(buffer[:])
+		n, _ := os.Stdin.Read(buffer[:])
+		printt(string(buffer[:]))
+		clearB(&buffer, n)
+		maxi = n
+		for n > 0 {
+			n, _ = os.Stdin.Read(buffer[:])
 			if maxi < n {
 				maxi = n
 			}
