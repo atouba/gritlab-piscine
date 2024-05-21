@@ -45,6 +45,7 @@ func main() {
 				printt(string(data))
 			} else {
 				printt("ERROR: ", err.Error(), "\n")
+				os.Exit(1)
 			}
 		}
 	}
