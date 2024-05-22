@@ -135,7 +135,26 @@ func validArgs(args []string) bool {
 	return true
 }
 
-func isOverFlow(op rune, num1, num2 int) bool {
+func sss(s string, x int) bool {
+	if x >= 0 && rune(s[0]) == '-' {
+		return false
+	}
+	return true
+}
+
+func aaa(s string, x int) bool {
+	if x < 0 && rune(s[0]) != '-' {
+		return false
+	}
+	return true
+}
+
+func isOverFlow(op rune, num1str, num2str string) bool {
+	num1 := Atoi(num1str)
+	num2 := Atoi(num2str)
+	if !sss(num1str, num1) || !aaa(num1str, num1) || !sss(num2str, num2) || !aaa(num2str, num2) {
+		return true
+	}
 	if op == '-' && num2 < 0 {
 		op = '+'
 		if num2 == -9223372036854775808 {
@@ -166,7 +185,7 @@ func isOverFlow(op rune, num1, num2 int) bool {
 func printOutput(args []string) {
 	var res int
 
-	if isOverFlow(rune(args[1][0]), Atoi(args[0]), Atoi(args[2])) {
+	if isOverFlow(rune(args[1][0]), args[0], args[2]) {
 		return
 	}
 	c := args[1][0]
