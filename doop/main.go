@@ -69,8 +69,6 @@ func IsNumeric(s string) bool {
 	return true
 }
 
-// printNbr
-
 func PrintNbr(n int) {
 	if n == -9223372036854775808 {
 		os.Stdout.Write([]byte("9223372036854775808"))
@@ -162,8 +160,6 @@ func isOverFlow(op rune, num1, num2 int) bool {
 	} else if op == '-' || op == '/' || op == '%' {
 		return false
 	}
-	//   print("true overflow")
-	//   fmt.Println(num1, " ", num2)
 	return false
 }
 
