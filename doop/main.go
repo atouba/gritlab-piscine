@@ -147,22 +147,24 @@ func isOverFlow(op rune, num1, num2 int) bool {
 	}
 	if op == '+' {
 		if num1 < 0 && num2 < 0 {
-			if (-9223372036854775808 - num1) <= num2 {
-				return false
+			if (-9223372036854775808 - num1) > num2 {
+				return true
 			}
 		} else if num1 >= 0 && num2 >= 0 {
-			if (9223372036854775807 - num1) >= num2 {
-				return false
+			if (9223372036854775807 - num1) < num2 {
+				return true
 			}
 		}
 	} else if op == '*' {
-		if (9223372036854775807/num1 >= num2) && (-9223372036854775808/num1 <= num2) {
-			return false
+		if (9223372036854775807/num1 < num2) || (-9223372036854775808/num1 > num2) {
+			return true
 		}
 	} else if op == '-' || op == '/' || op == '%' {
 		return false
 	}
-	return true
+	//   print("true overflow")
+	//   fmt.Println(num1, " ", num2)
+	return false
 }
 
 func printOutput(args []string) {
