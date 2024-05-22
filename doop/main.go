@@ -1,3 +1,10 @@
+// This is one of the worst codings I did, just wanna 
+// pass the exercise because I've been in it too much...
+// and like trying to fix each error in a rush which
+// costed me more time...
+// Tho I read about some interesting stuff...  
+// Interesting exercise overall
+
 package main
 
 import (
