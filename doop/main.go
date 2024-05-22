@@ -54,6 +54,9 @@ func Atoi(s string) int {
 			continue
 		}
 		if rune(s[i]) >= '0' && rune(s[i]) <= '9' {
+			if (res >= 0 && sign == -1) || (res < 0 && sign == 1) {
+				return 0
+			}
 			res += int(rune(s[i]) - '0')
 			if i < strlen_Atoi(s)-1 {
 				res *= 10
@@ -94,18 +97,20 @@ func printt(strs ...string) {
 
 func PrintNbr(n int) {
 	if n == -9223372036854775808 {
-		printStr("-9223372036854775808")
+		os.Stdout.Write([]byte("9223372036854775808"))
 		return
 	}
 	if n < 0 {
-		z01.PrintRune('-')
+		os.Stdout.Write([]byte("-"))
 		n *= -1
 	}
 	if n >= 10 {
 		PrintNbr(n / 10)
-		z01.PrintRune(rune('0' + (n % 10)))
+		// 		z01.PrintRune(rune('0' + (n % 10)))
+		os.Stdout.Write([]byte(string((n % 10) + '0')))
 	} else if n < 10 {
-		z01.PrintRune(rune('0' + n))
+		// 		z01.PrintRune(rune('0' + n))
+		os.Stdout.Write([]byte(string(n + '0')))
 	}
 }
 
@@ -125,28 +130,37 @@ func abs(n int) int {
 	return -n
 }
 
-func isOverFlow(res int, strs ...string) bool {
-	for _, v := range strs {
-		if v[0] == '-' {
-			if len(v) > 20 {
-				return false
-			}
-			if len(v) == 20 && Atoi(v) >= 0 {
-				return false
-			}
-		} else {
-			if len(v) > 19 {
-				return false
-			}
-			if len(v) == 19 && Atoi(v) <= 0 {
-				return false
-			}
-		}
-		if (v[0] == '*' || v[0] == '+') && (abs(res) < abs(Atoi(v))) {
-			return false
+// func isOverFlow(res int, strs ...string) bool {
+// 	for _, v := range strs {
+// 		if v[0] == '-' {
+// 			if len(v) > 20 {
+// 				return false
+// 			}
+// 			if len(v) == 20 && Atoi(v) >= 0 {
+// 				return false
+// 			}
+// 		} else {
+// 			if len(v) > 19 {
+// 				return false
+// 			}
+// 			if len(v) == 19 && Atoi(v) <= 0 {
+// 				return false
+// 			}
+// 		}
+// 		if (v[0] == '*' || v[0] == '+') && (res ) {
+// 			return false
+// 		}
+// 	}
+// 	return true
+// }
+
+func isActualNum(num string) bool {
+	for _, v := range num {
+		if v >= '1' && v <= '9' {
+			return true
 		}
 	}
-	return true
+	return false
 }
 
 func validArgs(args []string) bool {
@@ -156,12 +170,17 @@ func validArgs(args []string) bool {
 	if !isValidOp(args[1]) {
 		return false
 	}
-	if Atoi(args[2]) == 0 {
+	num1 := Atoi(args[0])
+	num2 := Atoi(args[2])
+	if (num1 == 0 && isActualNum(args[0])) || (num2 == 0 && isActualNum(args[2])) {
+		return false
+	}
+	if num2 == 0 && len(args[2]) == 1 {
 		if args[1] == "/" {
-			printStr("No division by 0\n")
+			os.Stdout.Write([]byte("No division by 0\n"))
 			return false
 		} else if args[1] == "%" {
-			printStr("No modulo by 0\n")
+			os.Stdout.Write([]byte("No modulo by 0\n"))
 			return false
 		}
 	}
@@ -184,11 +203,11 @@ func printOutput(args []string) {
 	case '%':
 		res = Atoi(args[0]) % Atoi(args[2])
 	}
-	if !isOverFlow(res, args[0], args[1]) {
-		return
-	}
+	// 	if !isOverFlow(res, args[0], args[1]) {
+	// 		return
+	// 	}
+	//   os.Stdout.WriteString([]byte(string(res)))
 	PrintNbr(res)
-	z01.PrintRune('\n')
 }
 
 func main() {
