@@ -143,7 +143,6 @@ func isOverFlow(res int, strs ...string) bool {
 			}
 		}
 		if (v[0] == '*' || v[0] == '+') && (abs(res) < abs(Atoi(v))) {
-			println("that's it")
 			return false
 		}
 	}
