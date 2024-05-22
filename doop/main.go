@@ -159,7 +159,7 @@ func isOverFlow(op rune, num1, num2 int) bool {
 		if (9223372036854775807/num1 >= num2) && (-9223372036854775808/num1 <= num2) {
 			return false
 		}
-	} else if op == '-' || op == '/' {
+	} else if op == '-' || op == '/' || op == '%' {
 		return false
 	}
 	return true
