@@ -182,7 +182,7 @@ func printOutput(args []string) {
 	// 	}
 	//   os.Stdout.WriteString([]byte(string(res)))
 	PrintNbr(res)
-	os.Stdout.Write("\n")
+	os.Stdout.Write([]byte("\n"))
 }
 
 func main() {
