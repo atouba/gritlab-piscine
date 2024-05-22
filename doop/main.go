@@ -38,21 +38,21 @@ func Atoi(s string) int {
 	}
 	for i := 0; i < strlen_Atoi(s); i++ {
 		if rune(s[i]) == '-' && i != 0 {
-      return 0
-    } else if rune(s[i]) == '-' && i == 0 {
+			return 0
+		} else if rune(s[i]) == '-' && i == 0 {
 			sign = -1
 		} else if rune(s[i]) >= '0' && rune(s[i]) <= '9' {
 			if (res > 0 && sign == -1) || (res < 0 && sign == 1) {
 				return 0
 			}
-			res += int(rune(s[i]) - '0') * sign
+			res += int(rune(s[i])-'0') * sign
 			if i < strlen_Atoi(s)-1 {
 				res *= 10
 			}
 		}
 	}
 
-	return res 
+	return res
 }
 
 // isNumeric
@@ -182,7 +182,7 @@ func printOutput(args []string) {
 	// 	}
 	//   os.Stdout.WriteString([]byte(string(res)))
 	PrintNbr(res)
-  os.Stdout.Write("\n")
+	os.Stdout.Write("\n")
 }
 
 func main() {
