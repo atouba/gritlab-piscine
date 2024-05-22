@@ -6,16 +6,6 @@ import (
 
 // Atoi
 
-func index_Atoi(s string) int {
-	for i := range s {
-		if s[i] != '0' {
-			break
-		}
-		return i
-	}
-	return 0
-}
-
 func strlen_Atoi(s string) int {
 	var l int = 0
 
@@ -46,23 +36,23 @@ func Atoi(s string) int {
 	if !count_sign(s) {
 		return 0
 	}
-	for i := index_Atoi(s); i < strlen_Atoi(s); i++ {
-		if rune(s[i]) == '-' {
+	for i := 0; i < strlen_Atoi(s); i++ {
+		if rune(s[i]) == '-' && i != 0 {
+			return 0
+		} else if rune(s[i]) == '-' && i == 0 {
 			sign = -1
-			continue
-		}
-		if rune(s[i]) >= '0' && rune(s[i]) <= '9' {
-			if (res >= 0 && sign == -1) || (res < 0 && sign == 1) {
+		} else if rune(s[i]) >= '0' && rune(s[i]) <= '9' {
+			if (res > 0 && sign == -1) || (res < 0 && sign == 1) {
 				return 0
 			}
-			res += int(rune(s[i]) - '0')
+			res += int(rune(s[i])-'0') * sign
 			if i < strlen_Atoi(s)-1 {
 				res *= 10
 			}
 		}
 	}
 
-	return res * sign
+	return res
 }
 
 // isNumeric
