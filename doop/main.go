@@ -104,29 +104,43 @@ func abs(n int) int {
 	return -n
 }
 
-// func isOverFlow(res int, strs ...string) bool {
-// 	for _, v := range strs {
-// 		if v[0] == '-' {
-// 			if len(v) > 20 {
-// 				return false
-// 			}
-// 			if len(v) == 20 && Atoi(v) >= 0 {
-// 				return false
-// 			}
-// 		} else {
-// 			if len(v) > 19 {
-// 				return false
-// 			}
-// 			if len(v) == 19 && Atoi(v) <= 0 {
-// 				return false
-// 			}
-// 		}
-// 		if (v[0] == '*' || v[0] == '+') && (res ) {
-// 			return false
-// 		}
-// 	}
-// 	return true
-// }
+func isOverFlow(res int, op rune, num1, num2 int) bool {
+	// 		if v[0] == '-' {
+	// 			if len(v) > 20 {
+	// 				return false
+	// 			}
+	// 			if len(v) == 20 && Atoi(v) >= 0 {
+	// 				return false
+	// 			}
+	// 		} else {
+	// 			if len(v) > 19 {
+	// 				return false
+	// 			}
+	// 			if len(v) == 19 && Atoi(v) <= 0 {
+	// 				return false
+	// 			}
+	// 		}
+	// 		if (v[0] == '*' || v[0] == '+') && (res ) {
+	// 			return false
+	// 		}
+
+	if op == '+' {
+		if num1 < 0 && num2 < 0 {
+			if -9223372036854775808-num1 <= num2 {
+				return true
+			}
+		} else if num1 >= 0 && num2 >= 0 {
+			if 9223372036854775807-num1 >= num2 {
+				return true
+			}
+		}
+	} else if op == '*' {
+		if (9223372036854775807/num1 > num2) && (-9223372036854775808/num1 < num2) {
+			return true
+		}
+	}
+	return false
+}
 
 func isActualNum(num string) bool {
 	for _, v := range num {
@@ -177,9 +191,9 @@ func printOutput(args []string) {
 	case '%':
 		res = Atoi(args[0]) % Atoi(args[2])
 	}
-	// 	if !isOverFlow(res, args[0], args[1]) {
-	// 		return
-	// 	}
+	if isOverFlow(res, rune(args[1][0]), Atoi(args[0]), Atoi(args[1])) {
+		return
+	}
 	//   os.Stdout.WriteString([]byte(string(res)))
 	PrintNbr(res)
 	os.Stdout.Write([]byte("\n"))
