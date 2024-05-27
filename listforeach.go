@@ -1,7 +1,7 @@
 package piscine
 
 func ListForEach(l *List, f func(*NodeL)) {
-	for it = l.Head; it != nil; it = it.Next {
+	for it := l.Head; it != nil; it = it.Next {
 		f(it)
 	}
 }
