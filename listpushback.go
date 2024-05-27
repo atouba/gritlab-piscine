@@ -1,7 +1,5 @@
 package piscine
 
-import "fmt"
-
 type NodeL struct {
 	Data interface{}
 	Next *NodeL
@@ -15,7 +13,6 @@ type List struct {
 func ListPr(l List) {
 	node := l.Head
 	for node != nil {
-		fmt.Println(node.Data)
 		node = node.Next
 	}
 }
@@ -27,7 +24,7 @@ func ListPr(l List) {
 //   }
 //   node = &NodeL{Data: data, Next: nil}
 //
-//   fmt.Println("print list:")
+//   fm . rintln("print list:")
 //   ListPr(*l)
 // }
 
