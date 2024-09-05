@@ -1,5 +1,7 @@
 package piscine
 
+import "fmt"
+
 type TreeNode struct {
 	Left, Right, Parent *TreeNode
 	Data                string
@@ -7,7 +9,9 @@ type TreeNode struct {
 
 func BTreeInsertData(root *TreeNode, data string) *TreeNode {
 	for curr := root; curr != nil; {
-		if Compare(data, root.Data) > 0 {
+		fmt.Println("data: ", curr.Data)
+		if Compare(data, curr.Data) > 0 {
+		// if Compare(data, root.Data) > 0 {
 			if curr.Right != nil {
 				curr = curr.Right
 			} else {
