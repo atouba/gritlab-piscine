@@ -14,13 +14,15 @@ func BTreeInsertData(root *TreeNode, data string) *TreeNode {
 				curr.Right = &TreeNode{curr, nil, nil, data}
 				return curr.Right
 			}
-		} else {
+		} else if Compare(data, curr.Data) < 0 {
 			if curr.Left != nil {
 				curr = curr.Left
 			} else {
 				curr.Left = &TreeNode{curr, nil, nil, data}
 				return curr.Left
 			}
+		} else {
+			return curr
 		}
 	}
 
