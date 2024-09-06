@@ -12,17 +12,17 @@ func BTreeInsertData(root *TreeNode, data string) *TreeNode {
 				curr = curr.Right
 			} else {
 				curr.Right = &TreeNode{curr, nil, nil, data}
-				return curr.Right
+				return root
 			}
 		} else if Compare(data, curr.Data) < 0 {
 			if curr.Left != nil {
 				curr = curr.Left
 			} else {
 				curr.Left = &TreeNode{curr, nil, nil, data}
-				return curr.Left
+				return root
 			}
 		} else {
-			return curr
+			return root
 		}
 	}
 
