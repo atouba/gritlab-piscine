@@ -5,6 +5,7 @@ type TreeNode struct {
 	Data                string
 }
 
+// search for a better approach
 func BTreeInsertData(root *TreeNode, data string) *TreeNode {
 	for curr := root; curr != nil; {
 		if Compare(data, curr.Data) > 0 {
