@@ -12,6 +12,7 @@ func convertToBase(n int, base string, res *[]rune) {
 func ConvertBase(nbr, baseFrom, baseTo string) string {
 	var res []rune
 
+	nbr = ToUpper(nbr)
 	n := AtoiBase(nbr, baseFrom)
 	convertToBase(n, baseTo, &res)
 	return string(res)
