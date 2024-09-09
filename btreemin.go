@@ -5,7 +5,7 @@ func BTreeMin(root *TreeNode) *TreeNode {
 		return nil
 	}
 	curr := root
-	for ; curr.Right != nil; curr = curr.Left {
+	for ; curr.Left != nil; curr = curr.Left {
 	}
 	return curr
 }
